@@ -1,7 +1,16 @@
+const { before } = require("cypress/types/lodash");
+
 describe('work with basic elements',()=>{
    
-    it('Text',()=>{
+    beforeEach(()=>{
+      //  cy.visit('https://wcaquino.me/cypress/componentes.html');
+        cy.reload();
+    });
+    before(()=>{
         cy.visit('https://wcaquino.me/cypress/componentes.html');
+    });
+    it('Text',()=>{
+        //cy.visit('https://wcaquino.me/cypress/componentes.html');
         cy.get('body').should('contain','Cuidado');
         cy.get('span').should('contain','Cuidado');
         cy.get('.facilAchar').should('contain','Cuidado');
@@ -10,7 +19,7 @@ describe('work with basic elements',()=>{
 
     it('Links',()=>{
 
-        cy.visit('https://wcaquino.me/cypress/componentes.html');
+        //cy.visit('https://wcaquino.me/cypress/componentes.html');
         cy.get('[href="#"]').click();
         cy.get('#resultado').should('have.text','Voltou!');
 
