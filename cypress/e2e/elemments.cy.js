@@ -1,4 +1,5 @@
 const { before } = require("cypress/types/lodash");
+const { it } = require("mocha");
 
 describe('work with basic elements',()=>{
    
@@ -26,7 +27,7 @@ describe('work with basic elements',()=>{
         cy.reload();
         cy.get('#resultado').should('have.text','Status: Nao cadastrado');
     });
-    it.only('TextFields',()=>{
+    it('TextFields',()=>{
         
     
         cy.get('#formNome').type('Cypress Test');
@@ -47,5 +48,7 @@ describe('work with basic elements',()=>{
             .clear()
             .type('Erro{selectall}acerto',{delay:100})
             .should('have.value','acerto');
-    }
+    });
+
+    
 });
